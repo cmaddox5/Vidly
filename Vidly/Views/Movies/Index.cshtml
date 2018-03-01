@@ -1,0 +1,30 @@
+﻿@model List<Vidly.Models.Movie>
+@{
+    ViewBag.Title = "Index";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<h2>Movies</h2>
+
+@if (Model.Count == 0)
+{
+    <p>We don't have any movies yet.</p>
+}
+else
+{
+    <table class="table table-hover table-bordered">
+        <thead>
+            <tr>
+                <th scope="col">Movie</th>
+            </tr>
+        </thead>
+        <tbody>
+            @foreach (var customer in Model)
+            {
+                <tr class="table-active">
+                    <td><a href="@Url.Action("Details", "Movies", new {id = customer.Id})">@customer.Name</a></td>
+                </tr>
+            }
+        </tbody>
+    </table>
+}
