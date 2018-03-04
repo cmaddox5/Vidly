@@ -16,13 +16,15 @@ else
         <thead>
             <tr>
                 <th scope="col">Movie</th>
+                <th>Genre</th>
             </tr>
         </thead>
         <tbody>
-            @foreach (var customer in Model)
+            @foreach (var movie in Model)
             {
                 <tr class="table-active">
-                    <td><a href="@Url.Action("Details", "Movies", new {id = customer.Id})">@customer.Name</a></td>
+                    <td><a href="@Url.Action("Details", "Movies", new {id = movie.Id})">@movie.Name</a></td>
+                    <td>@movie.Genre.Name</td>
                 </tr>
             }
         </tbody>
